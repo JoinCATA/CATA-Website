@@ -1,0 +1,15 @@
+@mixin font($f-name, $f-style, $f-weight, $f-url) {
+  @font-face {
+    font-family: $f-name;
+    font-style: $f-style;
+    font-weight: $f-weight;
+    src: url($f-url) format('woff2');
+    font-display: swap;
+  }
+}
+
+@include font('Monserrat', normal, 500, '../fonts/Monserat/Montserrat-Medium.woff2');
+@include font('Monserrat', normal, 400, '../fonts/Monserat/Montserrat-Regular.woff2');
+@include font('Monserrat', normal, 300, '../fonts/Monserat/Montserrat-Light.woff2');
+@include font('Next', normal, 900, '../fonts/Next/NEXT ART_Heavy.woff2');
+@include font('Next', normal, 700, '../fonts/Next/NEXT ART_Bold.woff2');

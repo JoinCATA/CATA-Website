@@ -1,0 +1,1412 @@
+{
+  "avatar": {
+    "id": "avatar_base_v1",
+    "filePath": "assets/avatar/base.webp",
+    "width": 1440,
+    "height": 2560,
+    "anchorX": 0.5,
+    "anchorY": 1.0
+  },
+  "categories": [
+    {
+      "id": "shoes",
+      "displayName": "Shoes",
+      "zIndex": 200
+    },
+    {
+      "id": "bottoms",
+      "displayName": "Bottoms",
+      "zIndex": 300
+    },
+    {
+      "id": "dresses",
+      "displayName": "Dresses",
+      "zIndex": 350
+    },
+    {
+      "id": "jumpsuits",
+      "displayName": "Jumpsuits",
+      "zIndex": 360
+    },
+    {
+      "id": "tops",
+      "displayName": "Tops",
+      "zIndex": 400
+    },
+    {
+      "id": "outerwear",
+      "displayName": "Outerwear",
+      "zIndex": 500
+    },
+    {
+      "id": "accessories",
+      "displayName": "Accessories",
+      "zIndex": 600
+    }
+  ],
+  "ui": {
+    "carouselOrder": [
+      "full-looks",
+      "tops",
+      "bottoms",
+      "outerwear",
+      "dresses",
+      "jumpsuits",
+      "shoes",
+      "accessories"
+    ],
+    "initialSelection": {
+      "tops": null,
+      "bottoms": null,
+      "shoes": null
+    },
+    "presets": [
+      {
+        "name": "pink fall",
+        "thumbnail": null,
+        "items": [
+          "tops_2",
+          "outerwear_2",
+          "bottoms_1",
+          "shoes_1"
+        ]
+      },
+      {
+        "name": "white tee summer",
+        "thumbnail": null,
+        "items": [
+          "tops_4",
+          "accessories_earrings_2",
+          "bottoms_9",
+          "shoes_12"
+        ]
+      },
+      {
+        "name": "white tank lounge",
+        "thumbnail": null,
+        "items": [
+          "tops_13",
+          "bottoms_15",
+          "shoes_3",
+          "accessories_earrings_1"
+        ]
+      },
+      {
+        "name": "yellow silk",
+        "thumbnail": null,
+        "items": [
+          "tops_7",
+          "bottoms_15",
+          "shoes_15",
+          "accessories_earrings_1"
+        ]
+      },
+      {
+        "name": "fall-pea",
+        "thumbnail": null,
+        "items": [
+          "tops_15",
+          "outerwear_6",
+          "bottoms_13",
+          "shoes_5",
+          "accessories_earrings_4"
+        ]
+      },
+      {
+        "name": "rainbow top",
+        "thumbnail": null,
+        "items": [
+          "tops_3",
+          "bottoms_2",
+          "shoes_7",
+          "accessories_earrings_9"
+        ]
+      },
+      {
+        "name": "sherpa runner",
+        "thumbnail": null,
+        "items": [
+          "tops_10",
+          "outerwear_5",
+          "bottoms_15",
+          "shoes_9"
+        ]
+      },
+      {
+        "name": "cardigan white",
+        "thumbnail": null,
+        "items": [
+          "tops_14",
+          "bottoms_3",
+          "shoes_15",
+          "accessories_earrings_10"
+        ]
+      },
+      {
+        "name": "sweater leggings",
+        "thumbnail": null,
+        "items": [
+          "tops_15",
+          "bottoms_13",
+          "shoes_3"
+        ]
+      },
+      {
+        "name": "blue fur",
+        "thumbnail": null,
+        "items": [
+          "outerwear_7",
+          "bottoms_3",
+          "shoes_1",
+          "accessories_earrings_11"
+        ]
+      },
+      {
+        "name": "outdoor dress",
+        "thumbnail": null,
+        "items": [
+          "dresses_2",
+          "shoes_3",
+          "accessories_earrings_4"
+        ]
+      },
+      {
+        "name": "starry dress",
+        "thumbnail": null,
+        "items": [
+          "dresses_11",
+          "accessories_earrings_9"
+        ]
+      },
+      {
+        "name": "wedding cake",
+        "thumbnail": null,
+        "items": [
+          "dresses_5",
+          "accessories_earrings_5"
+        ]
+      },
+      {
+        "name": "red work",
+        "thumbnail": null,
+        "items": [
+          "dresses_10",
+          "shoes_13",
+          "accessories_earrings_1"
+        ]
+      },
+      {
+        "name": "striped",
+        "thumbnail": null,
+        "items": [
+          "jumpsuits_2",
+          "shoes_13",
+          "accessories_earrings_6"
+        ]
+      },
+      {
+        "name": "leafy green",
+        "thumbnail": null,
+        "items": [
+          "jumpsuits_5",
+          "accessories_earrings_1"
+        ]
+      },
+      {
+        "name": "golden flap",
+        "thumbnail": null,
+        "items": [
+          "jumpsuits_8",
+          "shoes_8",
+          "accessories_earrings_10"
+        ]
+      }
+    ],
+    "randomize": {
+      "enabled": true,
+      "source": "presets"
+    }
+  },
+  "rules": {
+    "autoClearOnSelect": {
+      "jumpsuits": [
+        "tops",
+        "bottoms"
+      ],
+      "dresses": [
+        "tops",
+        "bottoms"
+      ]
+    },
+    "zOrder": {
+      "shoes": 200,
+      "bottoms": 300,
+      "dresses": 350,
+      "jumpsuits": 360,
+      "tops": 400,
+      "outerwear": 500,
+      "accessories": 600
+    },
+    "itemSpecificRules": {
+      "dresses_2": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This dress should not be worn with outerwear"
+      },
+      "dresses_5": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This dress should not be worn with outerwear"
+      },
+      "dresses_8": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This dress should not be worn with outerwear"
+      },
+      "dresses_12": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This dress should not be worn with outerwear"
+      },
+      "jumpsuits_1": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This jumpsuit should not be worn with outerwear"
+      },
+      "jumpsuits_3": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This jumpsuit should not be worn with outerwear"
+      },
+      "jumpsuits_5": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This jumpsuit should not be worn with outerwear"
+      },
+      "jumpsuits_6": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This jumpsuit should not be worn with outerwear"
+      },
+      "jumpsuits_7": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This jumpsuit should not be worn with outerwear"
+      },
+      "jumpsuits_8": {
+        "incompatibleCategories": ["outerwear"],
+        "notes": "This jumpsuit should not be worn with outerwear"
+      },
+      "bottoms_5": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "bottoms_7": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "bottoms_12": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "bottoms_14": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "bottoms_16": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "bottoms_17": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "bottoms_18": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "bottoms_19": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "bottoms_20": {
+        "incompatibleItems": ["outerwear_6", "outerwear_12"],
+        "notes": "This bottom should not be worn with specific outerwear items"
+      },
+      "outerwear_6": {
+        "incompatibleItems": ["bottoms_5", "bottoms_7", "bottoms_12", "bottoms_14", "bottoms_16", "bottoms_17", "bottoms_18", "bottoms_19", "bottoms_20"],
+        "notes": "This outerwear should not be worn with specific bottom items"
+      },
+      "outerwear_12": {
+        "incompatibleItems": ["bottoms_5", "bottoms_7", "bottoms_12", "bottoms_14", "bottoms_16", "bottoms_17", "bottoms_18", "bottoms_19", "bottoms_20"],
+        "notes": "This outerwear should not be worn with specific bottom items"
+      }
+    },
+    "specialCases": {
+      "outerwear_6": {
+        "sublayers": [
+          "backPath",
+          "frontPath"
+        ],
+        "notes": "Peacoat split into back/front to sandwich skirts correctly."
+      },
+      "boots": [
+        "shoes_11",
+        "shoes_14"
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "tops_1",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-1.jpg",
+      "garmentPath": "assets/garments/tops/tops-1.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_2",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-2.jpg",
+      "garmentPath": "assets/garments/tops/tops-2.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_3",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-3.jpg",
+      "garmentPath": "assets/garments/tops/tops-3.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_4",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-4.jpg",
+      "garmentPath": "assets/garments/tops/tops-4.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_5",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-5.jpg",
+      "garmentPath": "assets/garments/tops/tops-5.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_6",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-6.jpg",
+      "garmentPath": "assets/garments/tops/tops-6.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_7",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-7.jpg",
+      "garmentPath": "assets/garments/tops/tops-7.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_8",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-8.jpg",
+      "garmentPath": "assets/garments/tops/tops-8.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_9",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-9.jpg",
+      "garmentPath": "assets/garments/tops/tops-9.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_10",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-10.jpg",
+      "garmentPath": "assets/garments/tops/tops-10.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_11",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-11.jpg",
+      "garmentPath": "assets/garments/tops/tops-11.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_12",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-12.jpg",
+      "garmentPath": "assets/garments/tops/tops-12.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_13",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-13.jpg",
+      "garmentPath": "assets/garments/tops/tops-13.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_14",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-14.jpg",
+      "garmentPath": "assets/garments/tops/tops-14.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_15",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-15.jpg",
+      "garmentPath": "assets/garments/tops/tops-15.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_16",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-16.jpg",
+      "garmentPath": "assets/garments/tops/tops-16.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_17",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-17.jpg",
+      "garmentPath": "assets/garments/tops/tops-17.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_18",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-18.jpg",
+      "garmentPath": "assets/garments/tops/tops-18.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "tops_19",
+      "category": "tops",
+      "thumbPath": "assets/thumbnails/tops/tops-19.jpg",
+      "garmentPath": "assets/garments/tops/tops-19.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_1",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-1.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-1.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_2",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-2.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-2.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_3",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-3.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-3.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_4",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-4.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-4.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_5",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-5.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-5.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_6",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-6.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-6.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_7",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-7.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-7.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_8",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-8.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-8.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_9",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-9.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-9.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_10",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-10.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-10.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_11",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-11.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-11.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_12",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-12.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-12.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_13",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-13.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-13.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_14",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-14.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-14.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_15",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-15.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-15.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_16",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-16.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-16.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_17",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-17.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-17.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_18",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-18.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-18.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_19",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-19.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-19.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "bottoms_20",
+      "category": "bottoms",
+      "thumbPath": "assets/thumbnails/bottoms/bottoms-20.jpg",
+      "garmentPath": "assets/garments/bottoms/bottoms-20.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_1",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-1.jpg",
+      "garmentPath": "assets/garments/dresses/dress-1.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_2",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-2.jpg",
+      "garmentPath": "assets/garments/dresses/dress-2.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_3",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-3.jpg",
+      "garmentPath": "assets/garments/dresses/dress-3.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_4",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-4.jpg",
+      "garmentPath": "assets/garments/dresses/dress-4.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_5",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-5.jpg",
+      "garmentPath": "assets/garments/dresses/dress-5.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_6",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-6.jpg",
+      "garmentPath": "assets/garments/dresses/dress-6.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_7",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-7.jpg",
+      "garmentPath": "assets/garments/dresses/dress-7.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_8",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-8.jpg",
+      "garmentPath": "assets/garments/dresses/dress-8.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_9",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-9.jpg",
+      "garmentPath": "assets/garments/dresses/dress-9.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_10",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-10.jpg",
+      "garmentPath": "assets/garments/dresses/dress-10.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_11",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-11.jpg",
+      "garmentPath": "assets/garments/dresses/dress-11.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "dresses_12",
+      "category": "dresses",
+      "thumbPath": "assets/thumbnails/dresses/dress-12.jpg",
+      "garmentPath": "assets/garments/dresses/dress-12.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "jumpsuits_1",
+      "category": "jumpsuits",
+      "thumbPath": "assets/thumbnails/jumpsuits/jumpsuit-1.jpg",
+      "garmentPath": "assets/garments/jumpsuits/jumpsuit-1.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "jumpsuits_2",
+      "category": "jumpsuits",
+      "thumbPath": "assets/thumbnails/jumpsuits/jumpsuit-2.jpg",
+      "garmentPath": "assets/garments/jumpsuits/jumpsuit-2.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "jumpsuits_3",
+      "category": "jumpsuits",
+      "thumbPath": "assets/thumbnails/jumpsuits/jumpsuit-3.jpg",
+      "garmentPath": "assets/garments/jumpsuits/jumpsuit-3.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "jumpsuits_4",
+      "category": "jumpsuits",
+      "thumbPath": "assets/thumbnails/jumpsuits/jumpsuit-4.jpg",
+      "garmentPath": "assets/garments/jumpsuits/jumpsuit-4.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "jumpsuits_5",
+      "category": "jumpsuits",
+      "thumbPath": "assets/thumbnails/jumpsuits/jumpsuit-5.jpg",
+      "garmentPath": "assets/garments/jumpsuits/jumpsuit-5.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "jumpsuits_6",
+      "category": "jumpsuits",
+      "thumbPath": "assets/thumbnails/jumpsuits/jumpsuit-6.jpg",
+      "garmentPath": "assets/garments/jumpsuits/jumpsuit-6.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "jumpsuits_7",
+      "category": "jumpsuits",
+      "thumbPath": "assets/thumbnails/jumpsuits/jumpsuit-7.jpg",
+      "garmentPath": "assets/garments/jumpsuits/jumpsuit-7.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "jumpsuits_8",
+      "category": "jumpsuits",
+      "thumbPath": "assets/thumbnails/jumpsuits/jumpsuit-8.jpg",
+      "garmentPath": "assets/garments/jumpsuits/jumpsuit-8.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_1",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-1.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-1.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_2",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-2.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-2.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_3",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-3.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-3.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_4",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-4.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-4.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_5",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-5.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-5.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_6",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-6.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-6.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_7",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-7.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-7.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_8",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-8.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-8.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_9",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-9.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-9.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_10",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-10.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-10.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_11",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-11.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-11.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0,
+      "zIndexOverride": 180,
+      "notes": "Boots forced behind bottoms with lower zIndexOverride."
+    },
+    {
+      "id": "shoes_12",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-12.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-12.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0,
+      "zIndexOverride": 180,
+      "notes": "Boots forced behind bottoms with lower zIndexOverride."
+    },
+    {
+      "id": "shoes_13",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-13.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-13.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_14",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-14.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-14.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0,
+      "zIndexOverride": 180,
+      "notes": "Boots forced behind bottoms with lower zIndexOverride."
+    },
+    {
+      "id": "shoes_15",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-15.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-15.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_16",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-16.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-16.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "shoes_17",
+      "category": "shoes",
+      "thumbPath": "assets/thumbnails/shoes/shoes-17.jpg",
+      "garmentPath": "assets/garments/shoes/shoes-17.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_1",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-1.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-1.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_2",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-2.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-2.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_3",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-3.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-3.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_4",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-4.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-4.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_5",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-5.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-5.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_6",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-6.jpg",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0,
+      "sublayers": {
+        "backPath": "assets/garments/outerwear/outerwear-6-back.webp",
+        "frontPath": "assets/garments/outerwear/outerwear-6-front.webp"
+      },
+      "notes": "Peacoat split into front and back for correct layering."
+    },
+    {
+      "id": "outerwear_7",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-7.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-7.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_8",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-8.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-8.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_9",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-9.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-9.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_10",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-10.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-10.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_11",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-11.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-11.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_12",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-12.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-12.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "outerwear_13",
+      "category": "outerwear",
+      "thumbPath": "assets/thumbnails/outerwear/outerwear-13.jpg",
+      "garmentPath": "assets/garments/outerwear/outerwear-13.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_1",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-1.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-1.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_2",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-2.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-2.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_3",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-3.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-3.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_4",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-4.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-4.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_5",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-5.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-5.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_6",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-6.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-6.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_7",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-7.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-7.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_8",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-8.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-8.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_9",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-9.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-9.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_10",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-10.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-10.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_earrings_11",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/earrings-11.jpg",
+      "garmentPath": "assets/garments/accessories/earrings-11.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_sunglasses_1",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/sunglasses-1.jpg",
+      "garmentPath": "assets/garments/accessories/sunglasses-1.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_sunglasses_2",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/sunglasses-2.jpg",
+      "garmentPath": "assets/garments/accessories/sunglasses-2.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_sunglasses_3",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/sunglasses-3.jpg",
+      "garmentPath": "assets/garments/accessories/sunglasses-3.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_sunglasses_4",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/sunglasses-4.jpg",
+      "garmentPath": "assets/garments/accessories/sunglasses-4.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    },
+    {
+      "id": "accessories_sunglasses_5",
+      "category": "accessories",
+      "thumbPath": "assets/thumbnails/accessories/sunglasses-5.jpg",
+      "garmentPath": "assets/garments/accessories/sunglasses-5.webp",
+      "width": 1440,
+      "height": 2560,
+      "anchorX": 0.5,
+      "anchorY": 1.0
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+@import '../../../../global/scss/vars.scss';
+
+
+.video{
+	padding: 165px 0;
+	overflow: hidden;
+
+	&__wrap{
+		video{
+			width: 100%;
+			@media(max-width: 767px){
+				width: 200%;
+			}
+		}
+	}
+
+	&__text{
+		margin: 40px auto;
+		@media(max-width: 767px){
+				margin: 60px auto;
+		}
+	}
+
+	&__title{
+		text-align: center;
+		font-size: 44px;
+		@media(max-width: 767px){
+			font-size: 36px;
+		}
+	}
+
+	&__reverse{
+		transform: scaleX(-1);
+	}
+}
