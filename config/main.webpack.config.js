@@ -2,9 +2,15 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const sortCSSmq = require('sort-css-media-queries');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+
+// Функція сортування медіа-запитів (mobile-first)
+const sortCSSmq = (a, b) => {
+	const aNum = parseFloat(a.match(/(\d+)/)?.[0] || 0);
+	const bNum = parseFloat(b.match(/(\d+)/)?.[0] || 0);
+	return aNum - bNum;
+};
 const isDev = process.argv[process.argv.indexOf('--mode') + 1] === 'development';
 
 

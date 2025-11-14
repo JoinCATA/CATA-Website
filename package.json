@@ -14,6 +14,9 @@
     "> 1%",
     "last 3 version"
   ],
+  "engines": {
+    "node": ">=18.x"
+  },
   "author": "dfrnc-dev",
   "license": "MIT",
   "dependencies": {
@@ -39,13 +42,12 @@
     "html-webpack-plugin": "^5.5.0",
     "loader-utils": "^3.2.0",
     "mini-css-extract-plugin": "^2.5.3",
-    "node-sass": "^7.0.1",
+    "sass": "^1.57.1",
     "path": "^0.12.7",
     "postcss-import": "^14.0.2",
     "postcss-loader": "^6.2.1",
     "sass-loader": "^12.4.0",
     "schema-utils": "^4.0.0",
-    "sort-css-media-queries": "^2.0.4",
     "style-loader": "^3.3.1",
     "svg-parser": "^2.0.4",
     "webpack": "^5.68.0",
