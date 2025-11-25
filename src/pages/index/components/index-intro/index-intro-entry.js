@@ -1061,32 +1061,26 @@ class HeroAnimation {
     // Прокручуємо tops-items вправо на мобільних і десктопі
     const screenWidth = window.innerWidth;
     const topsItems = document.getElementById("tops-items");
+    const categoryTabs = document.querySelector(".category-tabs");
+    
     if (topsItems) {
-      // Зберігаємо поточну позицію
-      const startPosition = topsItems.scrollLeft;
       const scrollAmount = screenWidth <= 676 ? 300 : 300;
-      const targetPosition = startPosition + scrollAmount;
-      const duration = 3000;
-      const startTime = performance.now();
+      const targetScrollPosition = topsItems.scrollLeft + scrollAmount;
+      
+      // Плавний скрол для tops-items
+      topsItems.scrollTo({
+        left: targetScrollPosition,
+        behavior: "smooth",
+      });
 
-      // Функція плавної анімації прокрутки
-      const animateScroll = (currentTime) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeInOutQuad =
-          progress < 0.5
-            ? 2 * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-
-        const currentPosition = startPosition + scrollAmount * easeInOutQuad;
-        topsItems.scrollLeft = currentPosition;
-
-        if (progress < 1) {
-          requestAnimationFrame(animateScroll);
-        }
-      };
-
-      requestAnimationFrame(animateScroll);
+      // Синхронний плавний скрол для category-tabs
+      if (categoryTabs) {
+        const targetScrollPositionTabs = categoryTabs.scrollLeft + scrollAmount;
+        categoryTabs.scrollTo({
+          left: targetScrollPositionTabs,
+          behavior: "smooth",
+        });
+      }
     }
 
     this[key] = { wrapper, targetElement, itemsGridContainer };
