@@ -5,11 +5,26 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
-// Функція сортування медіа-запитів (mobile-first)
+// Функція сортування медіа-запитів (desktop-first для max-width)
 const sortCSSmq = (a, b) => {
 	const aNum = parseFloat(a.match(/(\d+)/)?.[0] || 0);
 	const bNum = parseFloat(b.match(/(\d+)/)?.[0] || 0);
-	return aNum - bNum;
+	// Якщо обидва max-width - сортуємо від більшого до меншого
+	if (a.includes('max-width') && b.includes('max-width')) {
+		return bNum - aNum;
+	}
+	// Якщо обидва min-width - сортуємо від меншого до більшого
+	if (a.includes('min-width') && b.includes('min-width')) {
+		return aNum - bNum;
+	}
+	// min-width йде після max-width
+	if (a.includes('max-width') && b.includes('min-width')) {
+		return -1;
+	}
+	if (a.includes('min-width') && b.includes('max-width')) {
+		return 1;
+	}
+	return 0;
 };
 const isDev = process.argv[process.argv.indexOf('--mode') + 1] === 'development';
 
@@ -155,7 +170,7 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: isDev,
+							sourceMap: true,
 							url: false,
 							esModule: false,
 						}
