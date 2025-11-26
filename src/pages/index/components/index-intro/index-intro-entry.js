@@ -1065,20 +1065,104 @@ class HeroAnimation {
     
     if (topsItems) {
       const scrollAmount = screenWidth <= 676 ? 300 : 300;
-      const targetScrollPosition = topsItems.scrollLeft + scrollAmount;
+      const duration = 2500; // тривалість анімації 2.5 секунди
       
-      // Плавний скрол для tops-items
-      topsItems.scrollTo({
-        left: targetScrollPosition,
-        behavior: "smooth",
-      });
+      // Вимикаємо CSS scroll-behavior для контролю анімації
+      const originalScrollBehaviorTops = topsItems.style.scrollBehavior;
+      const originalScrollBehaviorTabs = categoryTabs ? categoryTabs.style.scrollBehavior : null;
+      topsItems.style.scrollBehavior = 'auto';
+      if (categoryTabs) categoryTabs.style.scrollBehavior = 'auto';
+      
+      let activeAnimations = [];
+      let animationCancelled = false;
+      
+      // Функція для скасування всіх анімацій
+      const cancelAnimations = () => {
+        animationCancelled = true;
+        activeAnimations.forEach(id => cancelAnimationFrame(id));
+        activeAnimations = [];
+        // Повертаємо оригінальні scroll-behavior
+        topsItems.style.scrollBehavior = originalScrollBehaviorTops;
+        if (categoryTabs) categoryTabs.style.scrollBehavior = originalScrollBehaviorTabs;
+      };
+      
+      // Слухачі для скасування анімації при взаємодії користувача
+      const cancelOnInteraction = (e) => {
+        // Перевіряємо чи клік був на елементі всередині topsItems або categoryTabs
+        if (e.target.closest('#tops-items') || e.target.closest('.category-tabs')) {
+          cancelAnimations();
+          // Видаляємо слухачі після скасування
+          document.removeEventListener('click', cancelOnInteraction);
+          topsItems.removeEventListener('wheel', cancelOnInteraction);
+          if (categoryTabs) categoryTabs.removeEventListener('wheel', cancelOnInteraction);
+        }
+      };
+      
+      document.addEventListener('click', cancelOnInteraction);
+      topsItems.addEventListener('wheel', cancelOnInteraction, { passive: true });
+      if (categoryTabs) categoryTabs.addEventListener('wheel', cancelOnInteraction, { passive: true });
+      
+      // Функція плавної анімації скролу
+      const smoothScroll = (element, targetPosition, duration, onComplete) => {
+        if (animationCancelled) return;
+        
+        const startPosition = element.scrollLeft;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
 
-      // Синхронний плавний скрол для category-tabs
+        const animation = (currentTime) => {
+          if (animationCancelled) {
+            if (onComplete) onComplete();
+            return;
+          }
+          
+          if (startTime === null) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const progress = Math.min(timeElapsed / duration, 1);
+          
+          // Дуже плавна easing function
+          const easeInOutQuint = progress < 0.5
+            ? 16 * progress * progress * progress * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 5) / 2;
+          
+          element.scrollLeft = startPosition + distance * easeInOutQuint;
+          
+          if (progress < 1) {
+            const animId = requestAnimationFrame(animation);
+            activeAnimations.push(animId);
+          } else {
+            // Видаляємо слухачі після завершення анімації
+            document.removeEventListener('click', cancelOnInteraction);
+            topsItems.removeEventListener('wheel', cancelOnInteraction);
+            if (categoryTabs) categoryTabs.removeEventListener('wheel', cancelOnInteraction);
+            
+            if (onComplete) onComplete();
+          }
+        };
+
+        const animId = requestAnimationFrame(animation);
+        activeAnimations.push(animId);
+      };
+      
+      // Спочатку скрол для category-tabs
       if (categoryTabs) {
         const targetScrollPositionTabs = categoryTabs.scrollLeft + scrollAmount;
-        categoryTabs.scrollTo({
-          left: targetScrollPositionTabs,
-          behavior: "smooth",
+        smoothScroll(categoryTabs, targetScrollPositionTabs, duration, () => {
+          if (animationCancelled) return;
+          
+          // Після завершення першої анімації - скрол для tops-items
+          const targetScrollPosition = topsItems.scrollLeft + scrollAmount;
+          smoothScroll(topsItems, targetScrollPosition, duration, () => {
+            // Повертаємо оригінальні scroll-behavior
+            topsItems.style.scrollBehavior = originalScrollBehaviorTops;
+            if (categoryTabs) categoryTabs.style.scrollBehavior = originalScrollBehaviorTabs;
+          });
+        });
+      } else {
+        // Якщо немає category-tabs, просто скролимо tops-items
+        const targetScrollPosition = topsItems.scrollLeft + scrollAmount;
+        smoothScroll(topsItems, targetScrollPosition, duration, () => {
+          topsItems.style.scrollBehavior = originalScrollBehaviorTops;
         });
       }
     }

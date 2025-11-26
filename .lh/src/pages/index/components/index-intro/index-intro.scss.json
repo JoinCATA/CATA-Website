@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/index/components/index-intro/index-intro.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764156609786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764156609786,
+            "name": "Commit-0",
+            "content": "@import '../../../../global/scss/vars.scss';\r\n\r\n\r\n.hero{\r\n\tpadding: 80px 0;\r\n\toverflow-x: hidden;\r\n\t@media(max-width: 992px){\r\n\t\tpadding: 120px 0 80px 0; \r\n\t}\r\n\t@media(max-width: 540px){\r\n\t\tpadding: 180px 0 80px 0; \r\n\t}\r\n\r\n\t&__content{\r\n\t\ttext-align: center;\r\n\t\tposition: relative;\r\n\t\tz-index: 10;\r\n\t}\r\n\r\n\t&__title{\r\n\t\tfont-size: 44px;\r\n\t\tfont-family: $titleFont;\r\n\t\tcolor: #333333;\r\n\t\tfont-weight: 900;\r\n\t\tline-height: 1.2;\r\n\t\tmargin-bottom: 15px;\r\n\t}\r\n\r\n\t&__subtitle{\r\n\t\tcolor: #333333;\r\n\t\tfont-size: 24px;\r\n\t}\r\n\r\n\t&__img{\r\n\t\t@media(max-width: 992px){\r\n\t\t\ttransform: scale(1.2);\r\n\t\t\ttransform-origin: left center;\r\n\t\t\twidth: 100%;\r\n\t\t}\r\n\r\n\t\t// @media(max-width: 540px){\r\n\t\t// \ttransform: scale(2);\r\n\t\t// \tpadding-bottom: 40px;\r\n\t\t// }\r\n\t}\r\n\r\n\t@media(max-width: 992px){\r\n\t\t&__title{\r\n\t\t\tfont-size: 36px;\r\n\t\t}\r\n\r\n\t\t&__subtitle{\r\n\t\t\tfont-size: 18px;\r\n\t\t\tline-height: 1.3;\r\n\t\t}\r\n\t}\r\n}\r\n\r\n[data-item-id=\"tops_1\"] img.item-thumbnail,\r\n[data-item-id=\"tops_2\"] img.item-thumbnail,\r\n[data-item-id=\"tops_3\"] img.item-thumbnail,\r\n[data-item-id=\"tops_4\"] img.item-thumbnail,\r\n[data-item-id=\"tops_5\"] img.item-thumbnail,\r\n[data-item-id=\"tops_6\"] img.item-thumbnail,\r\n[data-item-id=\"tops_7\"] img.item-thumbnail,\r\n[data-item-id=\"tops_8\"] img.item-thumbnail {\r\n\topacity: 0;\r\n}\r\n\r\n@keyframes hero-pulse-swipe {\r\n\t0% { \r\n\t\ttransform: translateX(0);\r\n\t\topacity: 1; \r\n\t}\r\n\t50% { \r\n\t\ttransform: translateX(20px);\r\n\t\topacity: 1; \r\n\t}\r\n\t100% { \r\n\t\ttransform: translateX(0);\r\n\t\topacity: 1; \r\n\t}\r\n}\r\n\r\n.hero-pulse-wrapper {\r\n\tposition: absolute;\r\n\twidth: 40px;\r\n\theight: 40px;\r\n\tpointer-events: none;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\ttransform-origin: center center;\r\n\tz-index: 9999;\r\n\tleft: 44%;\r\n\ttop: 12%;\r\n\ttransform: translate(-50%, 0);\r\n\t\r\n\tsvg {\r\n\t\tanimation: hero-pulse-swipe 2s ease-in-out infinite;\r\n\t\twill-change: transform, opacity;\r\n\t}\r\n}\r\n\r\n.hero-pulse-svg {\r\n\tanimation: hero-pulse-swipe 2s ease-in-out infinite;\r\n\twill-change: transform, opacity;\r\n}\r\n"
+        }
+    ]
+}
