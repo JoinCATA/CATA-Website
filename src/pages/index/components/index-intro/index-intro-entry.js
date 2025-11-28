@@ -576,8 +576,53 @@ class HeroAnimation {
     this.removeAllPulses();
   }
 
+  _unlockScrollWithoutRemovingPulse() {
+    if (!this.scrollLocked) {
+      return;
+    }
+
+    this.scrollLocked = false;
+
+    const scrollY = this.lockedScrollPosition || 0;
+
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    document.body.style.overflowY = "";
+
+    if (this.wheelHandler) {
+      window.removeEventListener("wheel", this.wheelHandler);
+      this.wheelHandler = null;
+    }
+    if (this.touchHandler) {
+      window.removeEventListener("touchstart", this.touchHandler);
+      window.removeEventListener("touchmove", this.touchHandler);
+      this.touchHandler = null;
+    }
+
+    window.scrollTo({
+      top: scrollY,
+      behavior: "instant",
+    });
+
+    if (this.scrollLockTimeout) {
+      clearTimeout(this.scrollLockTimeout);
+      this.scrollLockTimeout = null;
+    }
+
+    if (this.unlockScrollHandler) {
+      document.removeEventListener("click", this.unlockScrollHandler, true);
+      this.unlockScrollHandler = null;
+    }
+  }
+
   setupUnlockScrollListeners() {
     this.unlockScrollHandler = (event) => {
+      // Перевіряємо чи це справжній клік користувача (не програмний)
+      if (!event.isTrusted) return;
+      
       const target = event.target;
       const itemCard = target.closest(".item-card");
       const categoryTab = target.closest(".category-tabs");
@@ -1064,7 +1109,7 @@ class HeroAnimation {
     const categoryTabs = document.querySelector(".category-tabs");
     
     if (topsItems) {
-      const scrollAmount = screenWidth <= 676 ? 300 : 300;
+      const scrollAmount = screenWidth <= 676 ? 200 : 200;
       const duration = 2500; // тривалість анімації 2.5 секунди
       
       // Вимикаємо CSS scroll-behavior для контролю анімації
@@ -1088,9 +1133,23 @@ class HeroAnimation {
       
       // Слухачі для скасування анімації при взаємодії користувача
       const cancelOnInteraction = (e) => {
-        // Перевіряємо чи клік був на елементі всередині topsItems або categoryTabs
-        if (e.target.closest('#tops-items') || e.target.closest('.category-tabs')) {
+        // Перевіряємо чи це справжній клік користувача (не програмний)
+        if (!e.isTrusted) return;
+        
+        // Перевіряємо чи клік був на елементі всередині topsItems, categoryTabs або на category-tab
+        const clickedOnItem = e.target.closest('#tops-items');
+        const clickedOnTabs = e.target.closest('.category-tabs');
+        const clickedOnTab = e.target.classList.contains('category-tab') || e.target.closest('.category-tab');
+        
+        if (clickedOnItem || clickedOnTabs || clickedOnTab) {
           cancelAnimations();
+          // Видаляємо SVG свайп
+          this.removeAllPulses();
+          // Приховуємо текст "Try Demo To Scroll"
+          const demoText = document.querySelector('.demo-scroll-text');
+          if (demoText) {
+            demoText.classList.add('hidden');
+          }
           // Видаляємо слухачі після скасування
           document.removeEventListener('click', cancelOnInteraction);
           topsItems.removeEventListener('wheel', cancelOnInteraction);
@@ -1098,7 +1157,7 @@ class HeroAnimation {
         }
       };
       
-      document.addEventListener('click', cancelOnInteraction);
+      document.addEventListener('click', cancelOnInteraction, true);
       topsItems.addEventListener('wheel', cancelOnInteraction, { passive: true });
       if (categoryTabs) categoryTabs.addEventListener('wheel', cancelOnInteraction, { passive: true });
       
@@ -1144,26 +1203,66 @@ class HeroAnimation {
         activeAnimations.push(animId);
       };
       
-      // Спочатку скрол для category-tabs
-      if (categoryTabs) {
-        const targetScrollPositionTabs = categoryTabs.scrollLeft + scrollAmount;
-        smoothScroll(categoryTabs, targetScrollPositionTabs, duration, () => {
+      // Рекурсивна функція для циклічного відтворення анімації
+      const runAnimationCycle = (isFirstRun = false) => {
+        if (animationCancelled) return;
+        
+        // Блокуємо скрол сторінки тільки при першому запуску
+        if (isFirstRun) {
+          this._lockScrollAndContinueAnimation();
+        }
+        
+        // Активуємо таб jumpsuits (з автоматичним центруванням при кліку користувача)
+        setTimeout(() => {
           if (animationCancelled) return;
           
-          // Після завершення першої анімації - скрол для tops-items
-          const targetScrollPosition = topsItems.scrollLeft + scrollAmount;
-          smoothScroll(topsItems, targetScrollPosition, duration, () => {
-            // Повертаємо оригінальні scroll-behavior
-            topsItems.style.scrollBehavior = originalScrollBehaviorTops;
-            if (categoryTabs) categoryTabs.style.scrollBehavior = originalScrollBehaviorTabs;
-          });
-        });
-      } else {
-        // Якщо немає category-tabs, просто скролимо tops-items
-        const targetScrollPosition = topsItems.scrollLeft + scrollAmount;
-        smoothScroll(topsItems, targetScrollPosition, duration, () => {
-          topsItems.style.scrollBehavior = originalScrollBehaviorTops;
-        });
+          const jumpsuitsTab = document.querySelector('.category-tab[data-category="jumpsuits"]');
+          if (jumpsuitsTab) {
+            jumpsuitsTab.click();
+            
+            // Після активації jumpsuits активуємо shoes
+            setTimeout(() => {
+              if (animationCancelled) return;
+              
+              const shoesTab = document.querySelector('.category-tab[data-category="shoes"]');
+              if (shoesTab) {
+                shoesTab.click();
+
+                
+                // Чекаємо паузу перед поверненням на початок
+                setTimeout(() => {
+                  if (animationCancelled) return;
+                  
+                  // Активуємо таб tops
+                  const topsTab = document.querySelector('.category-tab[data-category="tops"]');
+                  if (topsTab) {
+                    topsTab.click();
+                    
+                    // Розблоковуємо скрол після повернення на початок (без видалення SVG)
+                    this._unlockScrollWithoutRemovingPulse();
+                    
+                    // Приховуємо текст "Try Demo To Scroll"
+                    const demoText = document.querySelector('.demo-scroll-text');
+                    if (demoText) {
+                      demoText.classList.add('hidden');
+                    }
+                    
+                    // Пауза перед новим циклом
+                    setTimeout(() => {
+                      if (animationCancelled) return;
+                      runAnimationCycle(); // Запускаємо новий цикл
+                    }, 500);
+                  }
+                }, 2000);
+              }
+            }, 2500);
+          }
+        }, 2500);
+      };
+      
+      // Запускаємо перший цикл анімації з блокуванням скролу
+      if (categoryTabs) {
+        runAnimationCycle(true);
       }
     }
 

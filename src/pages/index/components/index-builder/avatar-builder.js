@@ -68,7 +68,7 @@ class AvatarBuilder {
     document.querySelectorAll(".category-tab").forEach((tab) => {
       tab.addEventListener("click", (e) => {
         const category = e.target.dataset.category;
-        this.switchCategory(category);
+        this.switchCategory(category, true); // true = клік користувача
       });
     });
 
@@ -430,7 +430,7 @@ class AvatarBuilder {
     });
   }
 
-  switchCategory(category) {
+  switchCategory(category, isUserClick = false) {
     this.currentCategory = category;
 
     document.querySelectorAll(".category-tab").forEach((tab) => {
@@ -440,6 +440,29 @@ class AvatarBuilder {
     document.querySelectorAll(".items-grid").forEach((grid) => {
       grid.classList.toggle("active", grid.id === `${category}-items`);
     });
+    
+    // Прокручуємо активний таб до центру тільки при кліку користувача
+    if (isUserClick) {
+      const activeTab = document.querySelector(`.category-tab[data-category="${category}"]`);
+      const categoryTabsContainer = document.querySelector(".category-tabs");
+      
+      if (activeTab && categoryTabsContainer) {
+        // Отримуємо позиції елементів
+        const tabRect = activeTab.getBoundingClientRect();
+        const containerRect = categoryTabsContainer.getBoundingClientRect();
+        
+        // Обчислюємо зсув для центрування
+        const tabCenter = tabRect.left + tabRect.width / 2;
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        const scrollOffset = tabCenter - containerCenter;
+        
+        // Плавно прокручуємо
+        categoryTabsContainer.scrollBy({
+          left: scrollOffset,
+          behavior: 'smooth'
+        });
+      }
+    }
   }
 
   selectItem(itemId, category) {

@@ -20,6 +20,38 @@
 
 		position: relative;
 
+		.demo-scroll-text {
+			position: absolute;
+			top: -70px;
+			left: 50%;
+			transform: translateX(-50%);
+			font-size: 36px;
+			font-weight: 900;
+			text-align: center;
+			z-index: 1000;
+			transition: opacity 0.5s ease, visibility 0.5s ease;
+			white-space: nowrap;
+			pointer-events: none;
+			line-height: 1.4;
+			font-family: $titleFont;
+
+			@media(max-width: 876px) {
+				font-size: 24px;
+				top: -40px;
+			}
+			
+
+			background: linear-gradient(123deg, #84D98E 7%, #BD88F8 51%, #FF7D2F 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			
+			&.hidden {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+
 
 		.info-block {
 			position: absolute;
@@ -605,6 +637,23 @@
 
 		&.active {
 			display: grid;
+			
+			.item-card {
+				opacity: 0;
+				transform: translateX(10px);
+				animation: slideInFromRight 0.4s ease forwards;
+			}
+			
+			.item-card:nth-child(1) { animation-delay: 0s; }
+			.item-card:nth-child(2) { animation-delay: 0.05s; }
+			.item-card:nth-child(3) { animation-delay: 0.1s; }
+			.item-card:nth-child(4) { animation-delay: 0.15s; }
+			.item-card:nth-child(5) { animation-delay: 0.2s; }
+			.item-card:nth-child(6) { animation-delay: 0.25s; }
+			.item-card:nth-child(7) { animation-delay: 0.3s; }
+			.item-card:nth-child(8) { animation-delay: 0.35s; }
+			.item-card:nth-child(9) { animation-delay: 0.4s; }
+			.item-card:nth-child(10) { animation-delay: 0.45s; }
 		}
 
 
@@ -817,5 +866,15 @@
 				transform: translateY(-2px);
 			}
 		}
+	}
+}
+@keyframes slideInFromRight {
+	from {
+		opacity: 0;
+		transform: translateX(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
 	}
 }

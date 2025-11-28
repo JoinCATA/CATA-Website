@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1764156609786,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764320845479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t@media(max-width: 992px){\r\n \t\tpadding: 120px 0 80px 0; \r\n \t}\r\n \t@media(max-width: 540px){\r\n-\t\tpadding: 180px 0 80px 0; \r\n+\t\tpadding: 140px 0 80px 0; \r\n \t}\r\n \r\n \t&__content{\r\n \t\ttext-align: center;\r\n"
+                },
+                {
+                    "date": 1764320873099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,12 +37,12 @@\n \t\t\ttransform-origin: left center;\r\n \t\t\twidth: 100%;\r\n \t\t}\r\n \r\n-\t\t// @media(max-width: 540px){\r\n-\t\t// \ttransform: scale(2);\r\n-\t\t// \tpadding-bottom: 40px;\r\n-\t\t// }\r\n+\t\t@media(max-width: 540px){\r\n+\t\t\t// transform: scale(2);\r\n+\t\t\tpadding-bottom: 40px;\r\n+\t\t}\r\n \t}\r\n \r\n \t@media(max-width: 992px){\r\n \t\t&__title{\r\n"
                 }
             ],
             "date": 1764156609786,

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/pages/index/components/index-preloader/index-preloader.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1764321233857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764321246824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   top: 0;\r\n   left: 0;\r\n   width: 100%;\r\n   height: 100%;\r\n-  background-color: #f5f5f5;\r\n+  background-color: #87A17C;\r\n   background-image: url(\"../img/background.webp\");\r\n   background-repeat: no-repeat;\r\n   background-position: center center;\r\n   background-size: cover;\r\n"
+                }
+            ],
+            "date": 1764321233857,
+            "name": "Commit-0",
+            "content": "@import \"../../../../global/scss/vars.scss\";\r\n\r\n.preloader {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: #f5f5f5;\r\n  background-image: url(\"../img/background.webp\");\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: cover;\r\n  z-index: 9999;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  opacity: 1;\r\n  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;\r\n  overflow: hidden;\r\n\r\n  &__img {\r\n    width: 80%;\r\n    position: relative;\r\n    max-width: 1500px;\r\n    @media (max-width: 992px) {\r\n      width: 90%;\r\n    }\r\n\r\n    svg {\r\n      width: 100%;\r\n      height: auto;\r\n    }\r\n  }\r\n\r\n  &__text {\r\n    position: absolute;\r\n    left: 0;\r\n    bottom: 15vh;\r\n    font-size: clamp(120px, 10vw, 200px);\r\n    text-transform: uppercase;\r\n    font-family: $titleFont;\r\n    font-weight: 900;\r\n    color: #f9785f;\r\n    opacity: 0.5;\r\n  }\r\n\r\n  &__mobile {\r\n    display: none;\r\n    svg {\r\n      height: 90vh;\r\n    }\r\n    @media (max-width: 992px) {\r\n      display: block;\r\n    }\r\n  }\r\n\r\n  &__desc {\r\n    @media (max-width: 992px) {\r\n      display: none;\r\n    }\r\n  }\r\n}\r\n\r\n#bText1,\r\n#lText2,\r\n#rText1,\r\n#lText3B {\r\n  opacity: 0;\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/index/index.hbs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764321235746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764321235746,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\"\r\n    content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n  {{!-- ./assets/img/logo.png --}}\r\n  <link rel=\"shortcut icon\" href=\"./assets/img/favicon.ico\" type=\"image/x-icon\">\r\n  <meta http-equiv='cache-control' content='no-cache'>\r\n  <meta http-equiv='expires' content='0'>\r\n  <meta http-equiv='pragma' content='no-cache'>\r\n  <link rel=\"preload\" as=\"image\" href=\"./assets/img/background.webp\">\r\n  <title>CataCata</title>\r\n\r\n</head>\r\n\r\n<body>\r\n  {{!-- {{>../../components/popup/popup.hbs}} --}}\r\n\r\n      {{!-- {{>../../components/loader/loader.hbs}} --}}\r\n\t\t\t{{>./components/index-preloader/index-preloader.hbs}}\r\n      {{>../../components/header/header.hbs}}\r\n          <main class=\"home__main\">\r\n  \r\n            {{>./components/index-intro/index-intro.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-builder/index-builder.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-tabs/index-tabs.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-video/index-video.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-cards/index-cards.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-before/index-before.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-beforeTwo/index-beforeTwo.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-beforeThree/index-beforeThree.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-cardsTwo/index-cardsTwo.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-form/index-form.hbs}}\r\n\t\t\t\t\t\t{{>./components/index-faq/index-faq.hbs}}\r\n            \r\n          </main>\r\n      {{>../../components/footer/footer.hbs}}\r\n\r\n\r\n\r\n \r\n</body>\r\n\r\n</html>"
+        }
+    ]
+}

@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1764156338015,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764335484316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -604,8 +604,25 @@\n \t\t}\r\n \r\n \t\t&.active {\r\n \t\t\tdisplay: grid;\r\n+\t\t\t\r\n+\t\t\t.item-card {\r\n+\t\t\t\topacity: 0;\r\n+\t\t\t\ttransform: translateX(10px);\r\n+\t\t\t\tanimation: slideInFromRight 0.4s ease forwards;\r\n+\t\t\t}\r\n+\t\t\t\r\n+\t\t\t.item-card:nth-child(1) { animation-delay: 0s; }\r\n+\t\t\t.item-card:nth-child(2) { animation-delay: 0.05s; }\r\n+\t\t\t.item-card:nth-child(3) { animation-delay: 0.1s; }\r\n+\t\t\t.item-card:nth-child(4) { animation-delay: 0.15s; }\r\n+\t\t\t.item-card:nth-child(5) { animation-delay: 0.2s; }\r\n+\t\t\t.item-card:nth-child(6) { animation-delay: 0.25s; }\r\n+\t\t\t.item-card:nth-child(7) { animation-delay: 0.3s; }\r\n+\t\t\t.item-card:nth-child(8) { animation-delay: 0.35s; }\r\n+\t\t\t.item-card:nth-child(9) { animation-delay: 0.4s; }\r\n+\t\t\t.item-card:nth-child(10) { animation-delay: 0.45s; }\r\n \t\t}\r\n \r\n \r\n \r\n@@ -817,5 +834,15 @@\n \t\t\t\ttransform: translateY(-2px);\r\n \t\t\t}\r\n \t\t}\r\n \t}\r\n-}\n\\ No newline at end of file\n+}\r\n+@keyframes slideInFromRight {\r\n+\tfrom {\r\n+\t\topacity: 0;\r\n+\t\ttransform: translateX(10px);\r\n+\t}\r\n+\tto {\r\n+\t\topacity: 1;\r\n+\t\ttransform: translateX(0);\r\n+\t}\r\n+}\r\n"
+                },
+                {
+                    "date": 1764338230970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n \t\t\twhite-space: nowrap;\r\n \t\t\tpointer-events: none;\r\n \t\t\t\r\n \t\t\t// Градієнт на текст\r\n-\t\t\tbackground: url('./assets/img/preloader__assets.png');\r\n+\t\t\tbackground: url('../img/preloader__assets.png');\r\n \t\t\tbackground-size: cover;\r\n \t\t\tbackground-position: center;\r\n \t\t\t-webkit-background-clip: text;\r\n \t\t\t-webkit-text-fill-color: transparent;\r\n"
+                },
+                {
+                    "date": 1764338944775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \t\tposition: relative;\r\n \r\n \t\t.demo-scroll-text {\r\n \t\t\tposition: absolute;\r\n-\t\t\ttop: -60px;\r\n+\t\t\ttop: -70px;\r\n \t\t\tleft: 50%;\r\n \t\t\ttransform: translateX(-50%);\r\n \t\t\tfont-size: 40px;\r\n \t\t\tfont-weight: 900;\r\n"
                 }
             ],
             "date": 1764156338015,
