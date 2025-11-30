@@ -418,7 +418,7 @@ class HeroAnimation {
 
     if (isInPosition) {
       this._lockScrollAndContinueAnimation();
-      this.scrollLockTriggered = true; // Позначаємо, що блокування вже відбулось
+      this.scrollLockTriggered = true;
     }
   }
 
@@ -431,101 +431,100 @@ class HeroAnimation {
     const currentScrollY = window.scrollY;
     this.lockedScrollPosition = currentScrollY;
 
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${currentScrollY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-    document.body.style.overflowY = "scroll";
-
-    // Використовуємо віртуальний скрол для продовження анімації
-    this._enableVirtualScroll();
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth <= 676) {
+      // Мобільні: блокуємо скрол сторінки, але дозволяємо анімацію продовжуватись
+      this.touchStartY = 0;
+      this.lastTouchY = 0;
+      this.virtualScrollY = currentScrollY; // Зберігаємо віртуальний скрол
+      
+      this.preventPageScroll = (e) => {
+        if (e.type === 'touchstart') {
+          this.touchStartY = e.touches[0].clientY;
+          this.lastTouchY = e.touches[0].clientY;
+        } else if (e.type === 'touchmove') {
+          const touchY = e.touches[0].clientY;
+          const deltaY = this.lastTouchY - touchY;
+          this.lastTouchY = touchY;
+          
+          // Блокуємо скрол сторінки
+          e.preventDefault();
+          
+          // Але продовжуємо анімацію елементів
+          if (deltaY !== 0) {
+            // Оновлюємо віртуальний скрол
+            this.virtualScrollY += deltaY;
+            this.virtualScrollY = Math.max(this.lockedScrollPosition, this.virtualScrollY);
+            
+            // Оновлюємо scrollProgress для анімації елементів
+            this.scrollProgress = Math.min(this.virtualScrollY / this.config.scrollDistance, 1);
+            
+            if (this.scrollProgress > 0) {
+              this.animatedItemIds.forEach((itemId) => {
+                this.animateClonedElement(itemId);
+              });
+            }
+          }
+        } else if (e.type === 'wheel') {
+          e.preventDefault();
+        }
+      };
+      
+      document.addEventListener('touchstart', this.preventPageScroll, { passive: false });
+      document.addEventListener('touchmove', this.preventPageScroll, { passive: false });
+      document.addEventListener('wheel', this.preventPageScroll, { passive: false });
+    } else {
+      // Десктоп: блокуємо скрол сторінки, але дозволяємо анімацію продовжуватись
+      this.virtualScrollY = currentScrollY;
+      this.targetVirtualScrollY = currentScrollY;
+      this.isAnimatingScroll = false;
+      
+      // Функція для плавної анімації
+      const smoothAnimate = () => {
+        if (!this.scrollLocked) return;
+        
+        const diff = this.targetVirtualScrollY - this.virtualScrollY;
+        if (Math.abs(diff) > 0.5) {
+          this.virtualScrollY += diff * 0.2; // Плавність 20%
+          
+          // Оновлюємо scrollProgress для анімації елементів
+          this.scrollProgress = Math.min(this.virtualScrollY / this.config.scrollDistance, 1);
+          
+          if (this.scrollProgress > 0) {
+            this.animatedItemIds.forEach((itemId) => {
+              this.animateClonedElement(itemId);
+            });
+          }
+          
+          requestAnimationFrame(smoothAnimate);
+        } else {
+          this.virtualScrollY = this.targetVirtualScrollY;
+          this.isAnimatingScroll = false;
+        }
+      };
+      
+      this.preventPageScroll = (e) => {
+        e.preventDefault();
+        
+        // Але продовжуємо анімацію елементів
+        if (e.type === 'wheel' && e.deltaY !== 0) {
+          // Оновлюємо цільовий віртуальний скрол
+          this.targetVirtualScrollY += e.deltaY;
+          this.targetVirtualScrollY = Math.max(this.lockedScrollPosition, this.targetVirtualScrollY);
+          
+          // Запускаємо плавну анімацію якщо вона ще не запущена
+          if (!this.isAnimatingScroll) {
+            this.isAnimatingScroll = true;
+            requestAnimationFrame(smoothAnimate);
+          }
+        }
+      };
+      
+      document.addEventListener('wheel', this.preventPageScroll, { passive: false });
+    }
 
     this.setupUnlockScrollListeners();
-  }
-
-  _enableVirtualScroll() {
-    // Зберігаємо поточний scrollY як віртуальний
-    this.virtualScrollY = this.lockedScrollPosition;
-    this.targetVirtualScrollY = this.lockedScrollPosition;
-    this.isAnimatingVirtualScroll = false;
-
-    // Функція для плавного оновлення анімації
-    const smoothUpdateAnimation = () => {
-      if (!this.scrollLocked) return;
-
-      // Плавна інтерполяція до цільового значення
-      const diff = this.targetVirtualScrollY - this.virtualScrollY;
-      if (Math.abs(diff) > 0.1) {
-        this.virtualScrollY += diff * 0.15; // Плавність 15%
-
-        this.scrollProgress = Math.min(
-          this.virtualScrollY / this.config.scrollDistance,
-          1
-        );
-
-        this.animatedItemIds.forEach((itemId) => {
-          this.animateClonedElement(itemId);
-        });
-
-        requestAnimationFrame(smoothUpdateAnimation);
-      } else {
-        this.virtualScrollY = this.targetVirtualScrollY;
-        this.isAnimatingVirtualScroll = false;
-      }
-    };
-
-    // Обробник для колеса миші (десктоп)
-    this.wheelHandler = (e) => {
-      e.preventDefault();
-
-      this.targetVirtualScrollY += e.deltaY;
-      this.targetVirtualScrollY = Math.max(
-        this.lockedScrollPosition,
-        this.targetVirtualScrollY
-      );
-
-      if (!this.isAnimatingVirtualScroll) {
-        this.isAnimatingVirtualScroll = true;
-        requestAnimationFrame(smoothUpdateAnimation);
-      }
-    };
-
-    // Обробник для свайпу (мобільні)
-    this.touchStartY = 0;
-    this.lastTouchY = 0;
-
-    this.touchHandler = (e) => {
-      if (e.type === "touchstart") {
-        this.touchStartY = e.touches[0].clientY;
-        this.lastTouchY = e.touches[0].clientY;
-      } else if (e.type === "touchmove") {
-        e.preventDefault();
-        const touchY = e.touches[0].clientY;
-        const delta = this.lastTouchY - touchY;
-        this.lastTouchY = touchY;
-
-        // Оновлюємо цільовий віртуальний скрол
-        this.targetVirtualScrollY += delta;
-
-        // Обмежуємо цільовий скрол
-        this.targetVirtualScrollY = Math.max(
-          this.lockedScrollPosition,
-          this.targetVirtualScrollY
-        );
-
-        if (!this.isAnimatingVirtualScroll) {
-          this.isAnimatingVirtualScroll = true;
-          requestAnimationFrame(smoothUpdateAnimation);
-        }
-      }
-    };
-
-    window.addEventListener("wheel", this.wheelHandler, { passive: false });
-    window.addEventListener("touchstart", this.touchHandler, {
-      passive: false,
-    });
-    window.addEventListener("touchmove", this.touchHandler, { passive: false });
   }
 
   _lockScroll() {
@@ -539,29 +538,13 @@ class HeroAnimation {
 
     this.scrollLocked = false;
 
-    const scrollY = this.lockedScrollPosition || 0;
-
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.left = "";
-    document.body.style.right = "";
-    document.body.style.width = "";
-    document.body.style.overflowY = "";
-
-    if (this.wheelHandler) {
-      window.removeEventListener("wheel", this.wheelHandler);
-      this.wheelHandler = null;
+    // Видаляємо обробники preventDefault (і для мобільних, і для десктопу)
+    if (this.preventPageScroll) {
+      document.removeEventListener('touchstart', this.preventPageScroll);
+      document.removeEventListener('touchmove', this.preventPageScroll);
+      document.removeEventListener('wheel', this.preventPageScroll);
+      this.preventPageScroll = null;
     }
-    if (this.touchHandler) {
-      window.removeEventListener("touchstart", this.touchHandler);
-      window.removeEventListener("touchmove", this.touchHandler);
-      this.touchHandler = null;
-    }
-
-    window.scrollTo({
-      top: scrollY,
-      behavior: "instant",
-    });
 
     if (this.scrollLockTimeout) {
       clearTimeout(this.scrollLockTimeout);
@@ -583,29 +566,13 @@ class HeroAnimation {
 
     this.scrollLocked = false;
 
-    const scrollY = this.lockedScrollPosition || 0;
-
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.left = "";
-    document.body.style.right = "";
-    document.body.style.width = "";
-    document.body.style.overflowY = "";
-
-    if (this.wheelHandler) {
-      window.removeEventListener("wheel", this.wheelHandler);
-      this.wheelHandler = null;
+    // Видаляємо обробники preventDefault (і для мобільних, і для десктопу)
+    if (this.preventPageScroll) {
+      document.removeEventListener('touchstart', this.preventPageScroll);
+      document.removeEventListener('touchmove', this.preventPageScroll);
+      document.removeEventListener('wheel', this.preventPageScroll);
+      this.preventPageScroll = null;
     }
-    if (this.touchHandler) {
-      window.removeEventListener("touchstart", this.touchHandler);
-      window.removeEventListener("touchmove", this.touchHandler);
-      this.touchHandler = null;
-    }
-
-    window.scrollTo({
-      top: scrollY,
-      behavior: "instant",
-    });
 
     if (this.scrollLockTimeout) {
       clearTimeout(this.scrollLockTimeout);
@@ -1136,20 +1103,27 @@ class HeroAnimation {
         // Перевіряємо чи це справжній клік користувача (не програмний)
         if (!e.isTrusted) return;
         
-        // Перевіряємо чи клік був на елементі всередині topsItems, categoryTabs або на category-tab
-        const clickedOnItem = e.target.closest('#tops-items');
+        // Перевіряємо чи клік був на item-card або category-tab
+        const clickedOnItemCard = e.target.closest('.item-card');
         const clickedOnTabs = e.target.closest('.category-tabs');
         const clickedOnTab = e.target.classList.contains('category-tab') || e.target.closest('.category-tab');
         
-        if (clickedOnItem || clickedOnTabs || clickedOnTab) {
+        if (clickedOnItemCard || clickedOnTabs || clickedOnTab) {
+          animationCancelled = true;
           cancelAnimations();
+          
+          // Розблоковуємо скрол сторінки
+          this._unlockScroll();
+          
           // Видаляємо SVG свайп
           this.removeAllPulses();
+          
           // Приховуємо текст "Try Demo To Scroll"
           const demoText = document.querySelector('.demo-scroll-text');
           if (demoText) {
             demoText.classList.add('hidden');
           }
+          
           // Видаляємо слухачі після скасування
           document.removeEventListener('click', cancelOnInteraction);
           topsItems.removeEventListener('wheel', cancelOnInteraction);

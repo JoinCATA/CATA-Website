@@ -447,20 +447,31 @@ class AvatarBuilder {
       const categoryTabsContainer = document.querySelector(".category-tabs");
       
       if (activeTab && categoryTabsContainer) {
-        // Отримуємо позиції елементів
-        const tabRect = activeTab.getBoundingClientRect();
-        const containerRect = categoryTabsContainer.getBoundingClientRect();
+        const screenWidth = window.innerWidth;
         
-        // Обчислюємо зсув для центрування
-        const tabCenter = tabRect.left + tabRect.width / 2;
-        const containerCenter = containerRect.left + containerRect.width / 2;
-        const scrollOffset = tabCenter - containerCenter;
-        
-        // Плавно прокручуємо
-        categoryTabsContainer.scrollBy({
-          left: scrollOffset,
-          behavior: 'smooth'
-        });
+        // Для мобільних: якщо це перший таб (tops), скролимо на початок
+        if (screenWidth <= 676 && category === 'tops') {
+          categoryTabsContainer.scrollTo({
+            left: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          // Інакше центруємо таб
+          // Отримуємо позиції елементів
+          const tabRect = activeTab.getBoundingClientRect();
+          const containerRect = categoryTabsContainer.getBoundingClientRect();
+          
+          // Обчислюємо зсув для центрування
+          const tabCenter = tabRect.left + tabRect.width / 2;
+          const containerCenter = containerRect.left + containerRect.width / 2;
+          const scrollOffset = tabCenter - containerCenter;
+          
+          // Плавно прокручуємо
+          categoryTabsContainer.scrollBy({
+            left: scrollOffset,
+            behavior: 'smooth'
+          });
+        }
       }
     }
   }

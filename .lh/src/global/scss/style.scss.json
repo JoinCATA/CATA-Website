@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1764156425110,
@@ -40,6 +40,18 @@
                 {
                     "date": 1764320464350,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -208,20 +208,20 @@\n \r\n \r\n body{\r\n \tposition: relative;\r\n+\tmin-height: 100vh;\r\n \t&:before{\r\n \t\tz-index: -1;\r\n \t\tcontent: '';\r\n-\t\tposition: fixed;\r\n+\t\tposition: absolute;\r\n \t\tbackground-image: url('../img/bg.jpg');\r\n \t\ttop: 0;\r\n \t\tleft: 0;\r\n \t\tbackground-size: cover;\r\n-\t\tbackground-repeat: no-repeat;\r\n-\t\tbackground-position: top;\r\n+\t\tbackground-repeat: repeat-y;\r\n+\t\tbackground-position: top center;\r\n \t\twidth: 100%;\r\n-\t\tmin-height: 100%;\r\n-\t\tmin-height: 100svh;\r\n+\t\theight: 100%;\r\n \t}\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1764344661939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -217,10 +217,8 @@\n \t\tbackground-image: url('../img/bg.jpg');\r\n \t\ttop: 0;\r\n \t\tleft: 0;\r\n \t\tbackground-size: cover;\r\n-\t\tbackground-repeat: repeat-y;\r\n-\t\tbackground-position: top center;\r\n \t\twidth: 100%;\r\n \t\theight: 100%;\r\n \t}\r\n }\r\n"
+                },
+                {
+                    "date": 1764344674973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -208,9 +208,9 @@\n \r\n \r\n body{\r\n \tposition: relative;\r\n-\tmin-height: 100vh;\r\n+\tmin-height: 100%;\r\n \t&:before{\r\n \t\tz-index: -1;\r\n \t\tcontent: '';\r\n \t\tposition: absolute;\r\n"
+                },
+                {
+                    "date": 1764344699757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -216,8 +216,10 @@\n \t\tposition: absolute;\r\n \t\tbackground-image: url('../img/bg.jpg');\r\n \t\ttop: 0;\r\n \t\tleft: 0;\r\n+\t\tright: 0;\r\n+\t\tbottom: 0;\r\n \t\tbackground-size: cover;\r\n \t\twidth: 100%;\r\n \t\theight: 100%;\r\n \t}\r\n"
                 }
             ],
             "date": 1764156425110,
